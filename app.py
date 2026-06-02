@@ -4,6 +4,7 @@ import requests
 from flask import Flask, request
 from twilio.twiml.voice_response import VoiceResponse, Gather
 from supabase import create_client, Client
+from supabase.lib.client_options import ClientOptions
 import openai
 
 app = Flask(__name__)
@@ -14,8 +15,11 @@ ASSISTANT_ID = os.getenv("ASSISTANT_ID")
 ZAPIER_NLA_API_KEY = os.getenv("ZAPIER_NLA_API_KEY")
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEYoptions=ClientOptions(postgrest_client_timeout=10, storage_client_timeout=10))
+supabase: Client = create_client(
+    SUPABASE_URL, 
+    SUPABASE_KEY, 
+    options=ClientOptions(postgrest_client_timeout=10, storage_client_timeout=10)
+)
 
 
 # 2. INBOUND TWILIO PHONE LINE WEBHOOK
