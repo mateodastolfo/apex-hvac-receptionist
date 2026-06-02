@@ -2,7 +2,7 @@ import os
 import time
 import requests
 from flask import Flask, request
-from twilio.twml.voice_response import VoiceResponse, Gather
+from twilio.twiml.voice_response import VoiceResponse, Gather
 from supabase import create_client, Client
 import openai
 
