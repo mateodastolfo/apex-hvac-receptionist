@@ -15,7 +15,7 @@ ZAPIER_NLA_API_KEY = os.getenv("ZAPIER_NLA_API_KEY")
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEYoptions=ClientOptions(postgrest_client_timeout=10, storage_client_timeout=10))
 
 
 # 2. INBOUND TWILIO PHONE LINE WEBHOOK
