@@ -13,7 +13,6 @@ app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 ASSISTANT_ID = os.getenv("ASSISTANT_ID")
 ZAPIER_NLA_API_KEY = os.getenv("ZAPIER_NLA_API_KEY")
-
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 supabase: Client = create_client(
     SUPABASE_URL, 
